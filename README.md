@@ -2,8 +2,7 @@
 
 This model is used to classify two different types of lung cancer (Adenocarcenoma (ACA), Squamous cell carcinoma (SCC)) and healthy lung tissue (Normal (N)). It is trained on an ImageNet Resnet-18 model using transfer learning. This model will reduce the work needed to detect and effectively counter the two most common lung cancers.
 
-<img src="https://i.imgur.com/SFtH1wZ.jpg" width="100" height="100">
-
+<img src="https://i.imgur.com/SFtH1wZ.jpg" width="500" height="500">
 All images used for training and testing including the above are taken from the following dataset: https://www.kaggle.com/datasets/andrewmvd/lung-and-colon-cancer-histopathological-images
 
 ## The Program
