@@ -27,17 +27,8 @@ import argparse
 from jetson_inference import imageNet
 from jetson_utils import videoSource, videoOutput, cudaFont, Log
 
-def is_iterable(obj):
-    try:
-        iter(obj)
-        return True
-    except TypeError:
-        return False
-
 def process_image(inp, out, argnetwork, argtopK):
     # load the recognition network
-
-    # note: to hard-code the paths to load a model, the following API can be used:
     
     net = imageNet(model="model/resnet18.onnx", labels="model/labels.txt", 
                     input_blob="input_0", output_blob="output_0")
@@ -60,12 +51,8 @@ def process_image(inp, out, argnetwork, argtopK):
     #   class_id, confidence = net.Classify(img)
     predictions = net.Classify(img, topK=argtopK)
 
-    print("prediction", predictions)
     # draw predicted class labels
     labels = []
-    print(is_iterable(predictions))
-    print(is_iterable(enumerate(predictions)))
-
     
     for n, (classID, confidence) in enumerate(predictions):
         classLabel = net.GetClassLabel(classID)
@@ -88,6 +75,3 @@ def process_image(inp, out, argnetwork, argtopK):
     net.PrintProfilerTimes()
 
     return labels, confidence
-    # exit on input/output EOS
-    # if not input.IsStreaming() or not output.IsStreaming():
-    #     return labels

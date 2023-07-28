@@ -1,6 +1,6 @@
 # Lung Cancer Recognition Model
 
-This model is used to classify two different types of lung cancer (Adenocarcenoma (ACA), Squamous cell carcinoma (SCC)) and healthy lung tissue (Normal (N)). It is trained on an ImageNet Resnet-18 model using transfer learning. This model will reduce the work needed to detect and effectively counter the two most common lung cancers.
+This model is used to classify two different types of lung cancer (Adenocarcenoma (ACA), Squamous cell carcinoma (SCC)) and healthy lung tissue (Normal (N)). It is trained on an ImageNet Resnet-18 model using transfer learning. This model will reduce the work needed to detect and effectively counter the two most common lung cancers as it only needs a microscopic sample of the lung tissue in order to accurately predict with an average accuracy of 96.7%.
 
 
 ## Examples of output
