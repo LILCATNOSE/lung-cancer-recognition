@@ -13,10 +13,9 @@ parser = argparse.ArgumentParser(description="Classify a live camera stream usin
                                  epilog=imageNet.Usage() + videoSource.Usage() + videoOutput.Usage() + Log.Usage())
 
 # Setting the arguments for the parser
-parser.add_argument("--input", type=str, default="/data/input", nargs='?', help="path to the input images folder")
+parser.add_argument("--input", type=str, default="data/input", nargs='?', help="path to the input images folder")
 parser.add_argument("--output", type=str, default="/home/nvidia/lung-cancer-recognition/data/output/latest_output", nargs='?', help="path to the output folder")
 parser.add_argument("--topK", type=int, default=1, help="show the topK number of class predictions (default: 1)")
-parser.add_argument("--folder", type=str, default="data/input", help="The input folder that the script will be ran in")
 
 # Parse the command line
 try:
@@ -27,7 +26,7 @@ except:
 	sys.exit(0)
 
 # Get path to input folder
-input_path = os.path.join(os.getcwd(), args.folder)
+input_path = os.path.join(os.getcwd(), args.input)
 
 data_list = os.listdir(input_path)
 
