@@ -27,33 +27,33 @@ import argparse
 from jetson_inference import imageNet
 from jetson_utils import videoSource, videoOutput, cudaFont, Log
 
-def process_image(inp, out, argnetwork, argtopK):
-    # load the recognition network
+
+# Function that returns the confidence and predicted label
+def process_image(inp, out, argtopK):
     
+    # Load the recognition network (ImageNet)
     net = imageNet(model="model/resnet18.onnx", labels="model/labels.txt", 
                     input_blob="input_0", output_blob="output_0")
-    print("imagenet: ", inp)
-    # create video sources & outputs
+    
+    # Define input and output vdeo sources and font
     input = videoSource(inp, argv=sys.argv)
     output = videoOutput(out, argv=sys.argv)
     font = cudaFont()
 
-    # process frames until EOS or the user exits
-
-    # capture the next image
+    # Capture the next image
     img = input.Capture()
 
-    if img is None: # timeout
+    # Timeout
+    if img is None:
         return  
 
-    # classify the image and get the topK predictions
-    # if you only want the top class, you can simply run:
-    #   class_id, confidence = net.Classify(img)
+    # Classify the image and get the topK predictions
     predictions = net.Classify(img, topK=argtopK)
 
-    # draw predicted class labels
+    # Declare list of labels
     labels = []
     
+    # Loop for every topK prediction
     for n, (classID, confidence) in enumerate(predictions):
         classLabel = net.GetClassLabel(classID)
         labels.append(classLabel)
@@ -65,13 +65,14 @@ def process_image(inp, out, argnetwork, argtopK):
                         x=5, y=5 + n * (font.GetSize() + 5),
                         color=font.White, background=font.Gray40)
                             
-    # render the image
+    # Render the image
     output.Render(img)
 
-    # update the title bar
+    # Update the title bar
     output.SetStatus("{:s} | Network {:.0f} FPS".format(net.GetNetworkName(), net.GetNetworkFPS()))
 
-    # print out performance info
+    # Print out performance info
     net.PrintProfilerTimes()
 
+    # Return confidence and labels
     return labels, confidence
