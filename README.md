@@ -14,9 +14,9 @@ The model was trained on a 2GB Jetson Nano with a pre-flashed SD card from the N
 
 
 ## How to execute
-1. Connect your Jetson Nano via Visual Studio Code
-2. Download all the files from this repository
-3. Store them within a folder for easy access
-4. Add images of choice into the input folder
-5. Since we are using a pre-flashed SD card, there sould be a docker container. To acces it, first type 'cd jetson-inference/folder' where folder is the name of the folder you stored all the files in. Then run ./docker/run.sh to start the docker container
-8. Finally, start the program by typing 'python3 script.py'
+1. Connect your Jetson Nano via SSH on Visual Studio Code
+2. Download all the files from this repository into a 'folder' for easy access
+3. Add images of choice into /'folder'/data/input
+4. To start the program, type cd into the 'folder'. 
+5. Since we are using a pre-flashed SD card, there sould be a docker container. Run ./docker/run.sh to start the docker container
+6. Finally, start the program by typing 'python3 script.py'. The output will be found in /'folder'/data/output/latest_output
