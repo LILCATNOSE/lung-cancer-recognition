@@ -21,6 +21,8 @@ The model was trained on a 2GB Jetson Nano with a pre-flashed SD card from the N
 6. Finally, start the program by typing 'python3 script.py'. Let the script run
 7. The output will be found in /'folder'/data/output/latest_output
 
+##### Note: The latest_output folder is emptied every time the script is ran, please make sure you save your images before running again.
+
 ## Arguments 
 For more customizable usage, the following arguments can be used:
 1. --input / overwrite path to the input folder
