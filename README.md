@@ -8,8 +8,6 @@ This model is used to classify two different types of lung cancer (Adenocarcenom
 
 ##### All images used for training and testing including the above are taken from the following Kaggle dataset: https://www.kaggle.com/datasets/andrewmvd/lung-and-colon-cancer-histopathological-images
 
-#hi
-
 ## The Model
 The model was trained on a 2GB Jetson Nano with a pre-flashed SD card from the NVIDIA website and it uses ImageNet in order to classify between ACA, SCC, and N tissue. It was trained on 4200 augmented images of 750 cancerous tissue samples. The program can process as many images as you want at once. The input folder should contain these. The output images will contain the prediction as well as the % confidence. It is up to the user to interepret the results through the confidence score and guess. There will additionally be an output of average confidence alongside the lowest score which can be found in the terminal.
 
