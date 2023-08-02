@@ -11,6 +11,7 @@ This model is used to classify two different types of lung cancer (Adenocarcenom
 ## The Model
 The model was trained on a 2GB Jetson Nano with a pre-flashed SD card from the NVIDIA website and it uses ImageNet in order to classify between ACA, SCC, and N tissue. It was trained on 4200 augmented images of 750 cancerous tissue samples. The program can process as many images as you want at once. The input folder should contain these. The output images will contain the prediction as well as the % confidence. It is up to the user to interepret the results through the confidence score and guess. There will additionally be an output of average confidence alongside the lowest score which can be found in the terminal.
 
+[Video explanation here](https://youtu.be/JJe4Bj_vtak)
 
 ## How to execute
 1. Connect your Jetson Nano via SSH on Visual Studio Code
